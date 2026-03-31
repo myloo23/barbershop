@@ -8,8 +8,8 @@ export default function ServicesSection() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
           eyebrow="Services"
-          title="Premium Grooming Services Built Around Precision and Personal Style"
-          description="Each service includes a short consultation, premium product use, and finishing detail so your look lasts beyond the appointment."
+          title="Service Menu Designed for Consistency"
+          description="All services include consultation, professional product use, and a finish that holds shape after you leave the chair."
         />
 
         <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
@@ -22,7 +22,10 @@ export default function ServicesSection() {
               transition={{ duration: 0.55, delay: index * 0.04 }}
               className="panel group p-6"
             >
-              <p className="text-xs uppercase tracking-[0.2em] text-bronzeSoft">{service.duration}</p>
+              <div className="flex items-center justify-between gap-4">
+                <p className="text-xs uppercase tracking-[0.2em] text-bronzeSoft">{service.duration}</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#e4cfad]">{service.price}</p>
+              </div>
               <h3 className="mt-3 font-display text-2xl text-[#f8f1e5]">{service.name}</h3>
               <p className="mt-3 text-sm leading-relaxed text-[#c3b096]">{service.description}</p>
               <div className="mt-6 h-0.5 w-10 rounded-full bg-bronze transition-all duration-300 group-hover:w-16" />

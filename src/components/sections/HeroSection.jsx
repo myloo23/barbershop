@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { business } from '../../data/siteData';
 import Button from '../ui/Button';
 
 export default function HeroSection() {
@@ -13,7 +14,7 @@ export default function HeroSection() {
             transition={{ duration: 0.6 }}
             className="text-xs font-semibold uppercase tracking-[0.34em] text-bronzeSoft"
           >
-            Premium Barbershop in [City]
+            Premium Barbershop in {business.city} {business.district}
           </motion.p>
 
           <motion.h1
@@ -22,7 +23,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.08 }}
             className="mt-5 font-display text-4xl leading-tight text-[#fbf6ef] sm:text-6xl"
           >
-            Precision Grooming for Men Who Expect <span className="gold-text">Exceptional Standards</span>
+            Tailored Grooming for Men Who Expect <span className="gold-text">Consistent Precision</span>
           </motion.h1>
 
           <motion.p
@@ -31,8 +32,8 @@ export default function HeroSection() {
             transition={{ duration: 0.7, delay: 0.16 }}
             className="mt-6 max-w-2xl text-base leading-relaxed text-[#cdbca4] sm:text-lg"
           >
-            At Imperial Grooming Co., every appointment combines craftsmanship, tailored style guidance, and luxury
-            service ritual to deliver confidence beyond the chair.
+            {business.name} combines disciplined barbering, personal style direction, and a calm studio atmosphere for
+            clients who want to look sharp every day, not only on special occasions.
           </motion.p>
 
           <motion.div
@@ -41,9 +42,9 @@ export default function HeroSection() {
             transition={{ duration: 0.7, delay: 0.24 }}
             className="mt-9 flex flex-wrap gap-4"
           >
-            <Button href="#booking">Book an Appointment</Button>
+            <Button href="#booking">Book Your Chair</Button>
             <Button href="#services" variant="secondary">
-              View Services
+              View Service Menu
             </Button>
           </motion.div>
         </div>
@@ -59,13 +60,13 @@ export default function HeroSection() {
             <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center opacity-35" />
             <div className="relative z-10 flex h-full flex-col justify-between">
               <p className="self-start rounded-full border border-[#d2ac7845] bg-[#100d0a9e] px-4 py-2 text-xs uppercase tracking-[0.3em] text-[#f0deca]">
-                Luxury Ambience
+                Est. {business.established}
               </p>
               <div>
                 <p className="text-xs uppercase tracking-[0.26em] text-[#d8c5ac]">
-                  Trusted by professionals, founders and creatives
+                  Trusted by finance, legal, and creative professionals
                 </p>
-                <p className="mt-3 font-display text-3xl text-[#fff6e9]">Award-Worthy Care, Every Visit</p>
+                <p className="mt-3 font-display text-3xl text-[#fff6e9]">{business.slogan}</p>
               </div>
             </div>
           </div>

@@ -8,9 +8,9 @@ export default function PricingSection() {
     <section id="pricing" className="section-border py-20">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
-          eyebrow="Pricing"
-          title="Transparent Premium Pricing with Packages for Every Grooming Standard"
-          description="No hidden fees. Choose a package that fits your routine, with clear value and expert craftsmanship included."
+          eyebrow="Membership Plans"
+          title="Clear Pricing with High-Value Monthly Options"
+          description="Choose a plan that matches your routine. No hidden fees, no forced commitment, and consistent barber quality every visit."
           align="center"
         />
 
@@ -34,7 +34,7 @@ export default function PricingSection() {
               <p className="mt-5 text-4xl font-extrabold text-[#f6e5ca]">{plan.price}</p>
               <ul className="mt-6 space-y-2 text-sm text-[#d6c6b1]">
                 {plan.features.map((feature) => (
-                  <li key={feature}>â€¢ {feature}</li>
+                  <li key={feature}>• {feature}</li>
                 ))}
               </ul>
               <Button href="#booking" className="mt-7 w-full">

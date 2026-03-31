@@ -1,25 +1,22 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { whyChoosePoints } from '../../data/siteData';
 import SectionHeading from '../ui/SectionHeading';
 
-const points = [
-  'Personalized consultation before every service',
-  'Master-level barbers with trend and classic expertise',
-  'Premium imported products for scalp and beard health',
-  'Consistent appointment quality with strict service standards',
-];
-
 export default function WhyChooseSection() {
+  const [imageReady, setImageReady] = useState(true);
+
   return (
     <section className="section-border py-20">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-2 lg:items-center">
         <div>
           <SectionHeading
-            eyebrow="Why Choose Us"
-            title="A Grooming Standard Built for Men Who Value Detail"
-            description="We do more than cut hair. We engineer an image that aligns with your personality, profession, and lifestyle."
+            eyebrow="Why Blackridge"
+            title="A Studio Built Around Reliable Results"
+            description="Every service is designed to fit your schedule, hair behavior, and personal style goals so your haircut still looks intentional two weeks later."
           />
           <ul className="mt-7 space-y-3">
-            {points.map((point, index) => (
+            {whyChoosePoints.map((point, index) => (
               <motion.li
                 key={point}
                 initial={{ opacity: 0, x: -20 }}
@@ -35,11 +32,22 @@ export default function WhyChooseSection() {
           </ul>
         </div>
 
-        <div
-          className="panel h-[420px] overflow-hidden bg-[url('https://images.unsplash.com/photo-1621551122354-e96737d64b70?auto=format&fit=crop&w=1400&q=80')] bg-cover bg-center"
-          role="img"
-          aria-label="Barber crafting a skin fade"
-        />
+        <figure className="panel relative h-[420px] overflow-hidden">
+          {imageReady ? (
+            <img
+              src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1400&q=80"
+              alt="Barber crafting a skin fade with clipper detail"
+              className="h-full w-full object-cover"
+              loading="lazy"
+              onError={() => setImageReady(false)}
+            />
+          ) : (
+            <div className="flex h-full items-center justify-center bg-[linear-gradient(145deg,#1f1812,#0f0c09)] p-6 text-center">
+              <p className="text-sm uppercase tracking-[0.2em] text-[#e4cfad]">Blackridge Studio Craft</p>
+            </div>
+          )}
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgba(10,8,6,0.45),transparent_45%)]" />
+        </figure>
       </div>
     </section>
   );

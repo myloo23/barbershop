@@ -1,10 +1,6 @@
 import { motion } from 'framer-motion';
+import { styleShowcase } from '../../data/siteData';
 import SectionHeading from '../ui/SectionHeading';
-
-const looks = [
-  ['Before', 'Unstructured growth and uneven silhouette'],
-  ['After', 'Crisp taper, balanced linework, and defined beard frame'],
-];
 
 export default function StyleShowcaseSection() {
   return (
@@ -12,14 +8,14 @@ export default function StyleShowcaseSection() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
           eyebrow="Style Showcase"
-          title="Transformation Focused Grooming That Performs in Real Life"
-          description="Our before and after approach focuses on shape, proportion, and maintainability so your style remains sharp between visits."
+          title="Before and After Work Built for Everyday Wear"
+          description="Our transformation process focuses on proportion, texture, and maintainability so your style performs in meetings, events, and daily life."
         />
 
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          {looks.map(([label, text], index) => (
+          {styleShowcase.map((item, index) => (
             <motion.article
-              key={label}
+              key={item.label}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
@@ -27,13 +23,14 @@ export default function StyleShowcaseSection() {
               className="panel overflow-hidden"
             >
               <div
-                className="h-72 bg-[url('https://images.unsplash.com/photo-1503951458645-643d53b5fddf?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center"
+                className="h-72 bg-cover bg-center"
+                style={{ backgroundImage: `url('${item.image}')` }}
                 role="img"
-                aria-label={`${label} style transformation placeholder`}
+                aria-label={item.alt}
               />
               <div className="p-6">
-                <p className="text-xs uppercase tracking-[0.24em] text-bronzeSoft">{label}</p>
-                <p className="mt-3 text-sm leading-relaxed text-[#d2c2ad]">{text}</p>
+                <p className="text-xs uppercase tracking-[0.24em] text-bronzeSoft">{item.label}</p>
+                <p className="mt-3 text-sm leading-relaxed text-[#d2c2ad]">{item.text}</p>
               </div>
             </motion.article>
           ))}

@@ -14,7 +14,7 @@ import TeamSection from './components/sections/TeamSection';
 import TestimonialsSection from './components/sections/TestimonialsSection';
 import TrustBar from './components/sections/TrustBar';
 import WhyChooseSection from './components/sections/WhyChooseSection';
-import { faqs } from './data/siteData';
+import { business, faqs } from './data/siteData';
 
 function SeoSchema() {
   const faqEntities = faqs.map((item) => ({
@@ -29,19 +29,19 @@ function SeoSchema() {
   const localBusinessSchema = {
     '@context': 'https://schema.org',
     '@type': 'BarberShop',
-    name: 'Imperial Grooming Co.',
-    image: 'https://www.imperialgroomingco.com/og-image.jpg',
+    name: business.name,
+    image: 'https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1200&q=80',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '126 Royal Avenue',
-      addressLocality: '[City]',
-      postalCode: '1011',
+      streetAddress: business.addressLine1,
+      addressLocality: business.city,
+      postalCode: '1051',
       addressCountry: 'HU',
     },
-    telephone: '+36 1 555 0148',
-    email: 'appointments@imperialgroomingco.com',
+    telephone: business.phoneDisplay,
+    email: business.bookingEmail,
     openingHours: ['Mo-Th 09:00-20:00', 'Fr 09:00-21:00', 'Sa 09:00-18:00', 'Su 10:00-16:00'],
-    url: 'https://www.imperialgroomingco.com',
+    url: business.website,
   };
 
   const faqSchema = {

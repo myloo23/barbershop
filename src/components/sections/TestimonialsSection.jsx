@@ -8,8 +8,8 @@ export default function TestimonialsSection() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
           eyebrow="Client Reviews"
-          title="What Clients Say About the Imperial Experience"
-          description="Real feedback from loyal clients who trust us for business-ready looks, occasion prep, and ongoing personal style maintenance."
+          title="What Regular Clients Say"
+          description="Feedback from returning clients who book with us for consistency, professionalism, and long-lasting results."
           align="center"
         />
 
@@ -23,9 +23,17 @@ export default function TestimonialsSection() {
               transition={{ duration: 0.55, delay: index * 0.07 }}
               className="panel p-6"
             >
-              <p className="text-lg tracking-wide text-[#f2d8ad]">★★★★★</p>
-              <p className="mt-4 text-sm leading-relaxed text-[#d8c9b6]">“{testimonial.quote}”</p>
-              <cite className="mt-4 block text-xs font-semibold uppercase tracking-[0.2em] text-[#bda689]">{testimonial.name}</cite>
+              <div className="flex items-center gap-3">
+                <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[#d2ac7860] bg-[#1a1511] text-sm font-semibold text-[#f2d8ad]">
+                  {testimonial.initials}
+                </div>
+                <div>
+                  <cite className="block text-xs font-semibold uppercase tracking-[0.2em] text-[#e6ceb0] not-italic">{testimonial.name}</cite>
+                  <p className="text-xs text-[#bda689]">{testimonial.role}</p>
+                </div>
+              </div>
+              <p className="mt-5 text-lg tracking-wide text-[#f2d8ad]">?????</p>
+              <p className="mt-4 text-sm leading-relaxed text-[#d8c9b6]">"{testimonial.quote}"</p>
             </motion.blockquote>
           ))}
         </div>

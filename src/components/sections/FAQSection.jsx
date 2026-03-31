@@ -11,8 +11,8 @@ export default function FAQSection() {
       <div className="mx-auto max-w-4xl px-5 sm:px-8">
         <SectionHeading
           eyebrow="FAQ"
-          title="Frequently Asked Questions"
-          description="Answers to common client questions before your first or next visit."
+          title="Helpful Answers Before Your Visit"
+          description="Everything clients ask most often about bookings, cancellations, and selecting the right barber."
           align="center"
         />
 
@@ -20,21 +20,16 @@ export default function FAQSection() {
           {faqs.map((item, index) => {
             const isOpen = openIndex === index;
             return (
-              <article
-                key={item.question}
-                className="panel"
-                itemScope
-                itemProp="mainEntity"
-                itemType="https://schema.org/Question"
-              >
+              <article key={item.question} className="panel" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
                 <button
                   className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
                   onClick={() => setOpenIndex(isOpen ? -1 : index)}
+                  type="button"
                 >
                   <span className="font-medium text-[#f5e9d6]" itemProp="name">
                     {item.question}
                   </span>
-                  <span className="text-bronzeSoft">{isOpen ? '−' : '+'}</span>
+                  <span className="text-bronzeSoft">{isOpen ? '-' : '+'}</span>
                 </button>
                 <AnimatePresence>
                   {isOpen && (

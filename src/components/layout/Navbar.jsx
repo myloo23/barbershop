@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { navLinks } from '../../data/siteData';
+import { business, navLinks } from '../../data/siteData';
 import Button from '../ui/Button';
 
 export default function Navbar() {
@@ -21,7 +21,7 @@ export default function Navbar() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
         <a href="#home" className="font-display text-xl font-semibold tracking-wide text-[#f8f2e8]">
-          Imperial <span className="gold-text">Grooming</span>
+          {business.shortName} <span className="gold-text">Atelier</span>
         </a>
 
         <nav className="hidden items-center gap-6 lg:flex">
@@ -41,6 +41,9 @@ export default function Navbar() {
 
         <button
           aria-label="Toggle Menu"
+          aria-expanded={open}
+          aria-controls="mobile-nav"
+          type="button"
           className="rounded-lg border border-[#d2ac7840] px-3 py-2 text-xs text-[#f5e7d2] lg:hidden"
           onClick={() => setOpen((prev) => !prev)}
         >
@@ -55,6 +58,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.25 }}
+            id="mobile-nav"
             className="border-t border-[#d2ac7828] bg-[#0e0c0a] px-5 pb-4 pt-3 lg:hidden"
           >
             <div className="flex flex-col gap-3">

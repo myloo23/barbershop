@@ -9,8 +9,8 @@ export default function TeamSection() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
           eyebrow="Master Team"
-          title="Barbers Trusted for Technique, Taste, and Consistency"
-          description="Our team combines old-world barber discipline with modern style fluency to deliver high-precision results for every client profile."
+          title="Experienced Barbers with Distinct Specialties"
+          description="Each barber brings a focused technical style so you can book the right specialist for your haircut goals and maintenance needs."
         />
 
         <div className="mt-10 grid gap-6 lg:grid-cols-3">
@@ -23,30 +23,29 @@ export default function TeamSection() {
               transition={{ duration: 0.55, delay: index * 0.08 }}
               className="panel overflow-hidden"
             >
-              <div
-                className="h-60 bg-[url('https://images.unsplash.com/photo-1562004760-aceed7bb0fe3?auto=format&fit=crop&w=1000&q=80')] bg-cover bg-center"
-                role="img"
-                aria-label={`${barber.name} portrait placeholder`}
-              />
+              <div className="relative flex h-60 items-center justify-center overflow-hidden bg-[linear-gradient(145deg,#2a2219,#13100c)]">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_25%,rgba(210,172,120,0.3),transparent_45%)]" />
+                <p className="relative z-10 font-display text-6xl tracking-wider text-[#f5e6cd]">{barber.initials}</p>
+              </div>
               <div className="p-6">
                 <h3 className="font-display text-3xl text-[#fbf4e8]">{barber.name}</h3>
                 <p className="mt-1 text-sm text-bronzeSoft">{barber.specialty}</p>
                 <p className="mt-4 text-sm leading-relaxed text-[#c7b59b]">{barber.bio}</p>
                 <p className="mt-4 text-xs uppercase tracking-[0.2em] text-[#b59e80]">Experience: {barber.experience}</p>
-                <div className="mt-6 flex items-center justify-between">
+                <div className="mt-6 flex items-center justify-between gap-4">
                   <div className="flex gap-2 text-xs text-[#f0ddc2]">
-                    <a href="#" className="rounded-lg border border-[#d2ac7838] px-2 py-1 hover:bg-[#1f1812]">
+                    <a href={barber.social.instagram} target="_blank" rel="noreferrer" className="rounded-lg border border-[#d2ac7838] px-2 py-1 hover:bg-[#1f1812]">
                       IG
                     </a>
-                    <a href="#" className="rounded-lg border border-[#d2ac7838] px-2 py-1 hover:bg-[#1f1812]">
+                    <a href={barber.social.facebook} target="_blank" rel="noreferrer" className="rounded-lg border border-[#d2ac7838] px-2 py-1 hover:bg-[#1f1812]">
                       FB
                     </a>
-                    <a href="#" className="rounded-lg border border-[#d2ac7838] px-2 py-1 hover:bg-[#1f1812]">
+                    <a href={barber.social.tiktok} target="_blank" rel="noreferrer" className="rounded-lg border border-[#d2ac7838] px-2 py-1 hover:bg-[#1f1812]">
                       TT
                     </a>
                   </div>
                   <Button href="#booking" className="px-4 py-2 text-xs">
-                    Book
+                    Book {barber.name.split(' ')[0]}
                   </Button>
                 </div>
               </div>
